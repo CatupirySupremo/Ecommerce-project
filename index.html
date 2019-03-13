@@ -1,0 +1,622 @@
+<!doctype html>
+<html class="no-js" lang="pt-BR" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/jquery.jscrollpane.css" />
+    <link rel="stylesheet" href="icons/foundation-icons.css" />
+</head>
+
+<body onload="Margin();">
+    <!-- NOTE: This is the off-canvas menu that appears when you click on the hamburger menu on smaller screens. Everything in the `.off-canvas` div belongs in `src/layouts/default.html`. Copy this section into the `default.html` file and remove it from this file.  -->
+    <div class="off-canvas ecommerce-header-off-canvas position-left" id="ecommerce-header" data-off-canvas>
+
+        <!-- Close button -->
+        <button class="close-button" aria-label="Close menu" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+        </button>
+        
+        <!-- Menu -->
+        <ul class="menu vertical">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">My Account</a></li>
+        </ul>
+
+    </div>
+
+    <!-- NOTE: This is the header menu that appears at the top of your site. -->
+    <div class="off-canvas-content" data-off-canvas-content>
+        <div class="ecommerce-header-top show-for-large">
+            <div class="grid-x">
+                <div class="ecommerce-header-top-message medium-2 cell">
+                    <img class="logo" src="https://placehold.it/160x40">
+                </div>
+                <div class="medium-4 cell center">
+                    <div class="menu">
+                        <input type="search" class="input" placeholder="Buscar">
+                        <button type="button" class="search-button"></button>
+                    </div>
+                </div>
+                <div class="ecommerce-header-top-links medium-6 cell">
+                    <div class="grid-x">
+                        <div class="auto cell items"><a href="#">Help</a></div>
+                        <div class="shrink cell items"><a href="cart.html">Cart</a></div>
+                        <div class="auto cell items"><a href="#">Contact</a></div>
+                        <div class="shrink cell items"><a href="#">My Account</a></div>
+                        <div class="auto cell items"><button type="button" class="shopping-cart-button" data-toggle="shopping-cart-dropdown" id="shopping-cart"></button></div>
+                        
+                        <div class="shopping-cart-dropdown-pane">
+                            <div class="dropdown-pane bottom" id="shopping-cart-dropdown" data-dropdown data-hover="true" data-hover-pane="true">
+                                <div id="shopping-cart-content"></div>
+                                <div>
+                                    <a href="cart.html" class="button shopping-cart-checkout expanded">Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ecommerce-header-mobile hide-for-large" id="cart-dropdown-pane">
+            <div class="ecommerce-header-mobile-left">
+                <button class="menu-icon" type="button" data-toggle="ecommerce-header"></button>
+                <form class="ecommerce-header-search-exandable">
+                    <input type="search" placeholder="Search">
+                </form>
+            </div>
+            <div class="ecommerce-header-mobile-center">
+                <a href="#"><img class="logo" src="https://placehold.it/130x40"></a>
+            </div>
+            <div class="ecommerce-header-mobile-right">
+                <a class="shopping-cart-button" href="cart.html"></a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- clean hero slider -->
+    <div class="orbit clean-hero-slider" role="region" aria-label="Favorite Space Pictures" data-orbit id="hero">
+        <div class="orbit-wrapper">
+            <div class="orbit-controls">
+                <button class="orbit-previous float-left"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+                <button class="orbit-next float-right"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+            </div>
+            <ul class="orbit-container">
+                <li class="orbit-slide">
+                    <figure class="orbit-figure">
+                        <img class="orbit-image" src="assets/23466317216_b99485ba14_o-panorama.jpg" alt="image alt text">
+                        <figcaption class="orbit-caption">
+                            <h3>Lorem Ipsum Etiam</h3>
+                            <p>Etiam porta sem malesuada magna mollis euismod. Vestibulum id ligula porta felis euismod semper.</p>
+                            <a href="#" class="button yellow">Mattis Elit</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="orbit-slide">
+                    <figure class="orbit-figure">
+                        <img class="orbit-image" src="assets/23466317216_b99485ba14_o-panorama.jpg" alt="image alt text">
+                        <figcaption class="orbit-caption">
+                            <h3>Ipsum Ornare Ultricies</h3>
+                            <p>Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <a href="#" class="button yellow">Egestas Amet</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="orbit-slide">
+                    <figure class="orbit-figure">
+                        <img class="orbit-image" src="assets/23466317216_b99485ba14_o-panorama.jpg" alt="image alt text">
+                        <figcaption class="orbit-caption">
+                            <h3>Malesuada Parturient</h3>
+                            <p>Fusce dapibus, tellus ac cursus commodo, sit amet risus. Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam sit amet non magna.</p>
+                            <a href="#" class="button yellow">Sollicitudin</a>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </div>
+        <nav class="orbit-bullets" id="bullets">
+            <button class="is-active" data-slide="0"><span class="show-for-sr">Lorem Ipsum Etiam</span><span class="show-for-sr">Current Slide</span></button>
+            <button data-slide="1"><span class="show-for-sr">Lorem Ipsum Etiam</span></button>
+            <button data-slide="2"><span class="show-for-sr">Lorem Ipsum Etiam</span></button>
+        </nav>
+    </div>
+    <!-- /clean hero slider -->
+
+    <section class="filter-simple">
+        <div class="button-group round">
+            <button class="button hollow filter-simple-button is-active" data-filter="all">All</button>
+            <button class="button hollow filter-simple-button" data-filter="space">Space</button>
+            <button class="button hollow filter-simple-button" data-filter="animals">Animals</button>
+            <button class="button hollow filter-simple-button" data-filter="nature">Nature</button>
+        </div>
+
+        <!-- product cards -->
+        <div class="grid-container fluid" id="products">
+            <div class="grid-x">
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item space">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="product-example.html"><img src="https://placehold.it/180x180" id="teste"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="product-example.html" id="nometeste">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <a href="product-example.html"><span class="product-card-price" id="precoteste">$9.99</span><span class="product-card-sale">$12.99</span></a>
+                        <div class="product-card-colors">
+                            <button data-addCart class="button-hover-addcart button-add-cart button" onclick="Register(document.getElementById('teste').getAttribute('src'), document.getElementById('nometeste').innerHTML, document.getElementById('precoteste').innerHTML, 1);"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item nature">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item animals">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item nature">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item animals">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item space">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item space">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item nature">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item animals">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item nature">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item animals">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item space">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item space">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item nature">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item animals">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item nature">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item animals">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item space">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item space">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item nature">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item animals">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item nature">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item animals">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item space">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item space">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item nature">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item animals">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item nature">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item animals">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xlarge-1 large-2 medium-3 small-6 cell filter-simple-item space">
+                    <div class="product-card">
+                        <div class="product-card-thumbnail">
+                            <a href="javascript: void(0);"><img src="https://placehold.it/180x180"/></a>
+                        </div>
+                        <h2 class="product-card-title"><a href="#">Product Name</a></h2>
+                        <span class="product-card-desc">Product Description</span>
+                        <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
+                        <div class="product-card-colors">
+                            <button class="button-hover-addcart button"><span>Add to cart</span><i class="fi fi-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /product card -->
+    </section>
+
+
+
+    <!-- marketing site footer -->
+    <footer class="marketing-site-footer">
+        <div class="grid-x">
+            <div class="large-auto cell padded">
+                <h4 class="marketing-site-footer-name">Yeti Snowcone</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolorem accusantium architecto id quidem, itaque nesciunt quam ducimus atque.</p>
+                <ul class="menu marketing-site-footer-menu-social simple">
+                    <li><a href="#"><i class="fi-social-youtube" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fi-social-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fi-social-twitter" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <div class="large-auto cell padded">
+                <h4 class="marketing-site-footer-title">Contact Info</h4>
+                <div class="marketing-site-footer-block">
+                    <i class="fi fi-marker" aria-hidden="true"></i>
+                    <p>100 W Rincon<br>San Francisco, CA 94015</p>
+                </div>
+                <div class="marketing-site-footer-block">
+                    <i class="fi fi-telephone" aria-hidden="true"></i>
+                    <p>1 (800) 555-5555</p>
+                </div>
+                <div class="marketing-site-footer-block">
+                    <i class="fi fi-mail" aria-hidden="true"></i>
+                    <p>yetirules@fakeemail.com</p>
+                </div>
+            </div>
+            <div class="large-auto cell padded">
+                <h4 class="marketing-site-footer-title">Instagram</h4>
+                <div class="grid-x">
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="marketing-site-footer-bottom">
+            <div class="grid-x grid-padding-x">
+                <div class="large-auto cell align-self-middle">
+                    <p>&copy; 2017 No rights reserved</p>
+                </div>
+                <div class="large-auto cell">
+                    <ul class="menu marketing-site-footer-bottom-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Works</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /marketing site footer -->
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/scrollbar/mwheelIntent.js"></script>
+    <script src="js/scrollbar/jquery.mousewheel.js"></script>
+    <script src="js/scrollbar/jquery.jscrollpane.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

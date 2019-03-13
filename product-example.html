@@ -1,0 +1,253 @@
+<!doctype html>
+<html class="no-js" lang="pt-BR" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/jquery.jscrollpane.css" />
+    <link rel="stylesheet" href="icons/foundation-icons.css" />
+</head>
+
+<body onload="Populate();">
+    <!-- NOTE: This is the off-canvas menu that appears when you click on the hamburger menu on smaller screens. Everything in the `.off-canvas` div belongs in `src/layouts/default.html`. Copy this section into the `default.html` file and remove it from this file.  -->
+    <div class="off-canvas ecommerce-header-off-canvas position-left" id="ecommerce-header" data-off-canvas>
+
+        <!-- Close button -->
+        <button class="close-button" aria-label="Close menu" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <!-- Menu -->
+        <ul class="menu vertical">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">My Account</a></li>
+        </ul>
+
+    </div>
+
+    <!-- NOTE: This is the header menu that appears at the top of your site. -->
+    <div class="off-canvas-content" data-off-canvas-content>
+        <div class="ecommerce-header-top show-for-large">
+            <div class="grid-x">
+                <div class="ecommerce-header-top-message medium-2 cell">
+                    <a href="index.html"><img class="logo" src="https://placehold.it/160x40"></a>
+                </div>
+                <div class="medium-4 cell" style="display:flex;justify-content:center;align-items:center;">
+                    <div class="menu" style="height:40px;">
+                        <input type="search" class="input" placeholder="Buscar">
+                        <button type="button" class="search-button"></button>
+                    </div>
+                </div>
+                <div class="ecommerce-header-top-links medium-6 cell">
+                    <div class="grid-x">
+                        <div class="auto cell items"><a href="#">Help</a></div>
+                        <div class="shrink cell items"><a href="cart.html">Cart</a></div>
+                        <div class="auto cell items"><a href="#">Contact</a></div>
+                        <div class="shrink cell items"><a href="#">My Account</a></div>
+                        <div class="auto cell items"><button type="button" class="shopping-cart-button" data-toggle="shopping-cart-dropdown" id="shopping-cart"></button></div>
+
+                        <div class="shopping-cart-dropdown-pane">
+                            <div class="dropdown-pane bottom" id="shopping-cart-dropdown" data-dropdown data-hover="true" data-hover-pane="true">
+                                <div id="shopping-cart-content"></div>
+                                <div>
+                                    <a href="cart.html" class="button shopping-cart-checkout expanded">Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ecommerce-header-mobile hide-for-large">
+            <div class="ecommerce-header-mobile-left">
+                <button class="menu-icon" type="button" data-toggle="ecommerce-header"></button>
+                <form class="ecommerce-header-search-exandable">
+                    <input type="search" placeholder="Search">
+                </form>
+            </div>
+            <div class="ecommerce-header-mobile-center">
+                <a href="index.html"><img class="logo" src="https://placehold.it/130x40"></a>
+            </div>
+            <div class="ecommerce-header-mobile-right">
+                <a class="shopping-cart-button"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Images -->
+    <div class="news-image-gallery-container">
+        <div class="grid-x">
+            <div class="small-12 medium-6 large-6 cell" style="display:flex;justify-content:center;align-items:center;">
+                <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;" style="margin-bottom: 0;">
+                    <ul class="orbit-container" style="height: auto;">
+                        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+                        <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+                        <li class="is-active orbit-slide">
+                            <img class="orbit-img" id="img" src="https://placehold.it/500x500" alt="Space" style="width: 100%; height: auto;">
+                        </li>
+                        <li class="orbit-slide">
+                            <img class="orbit-img" src="https://placehold.it/500x500" alt="Space" style="width: 100%; height: auto;">
+                        </li>
+                        <li class="orbit-slide">
+                            <img class="orbit-img" src="https://placehold.it/500x500" alt="Space" style="width: 100%; height: auto;">
+                        </li>
+                        <li class="orbit-slide">
+                            <img class="orbit-img" src="https://placehold.it/500x500" alt="Space" style="width: 100%; height: auto;">
+                        </li>
+                    </ul>
+                    <nav class="orbit-bullets adjust">
+                        <button class="is-active" data-slide="0"><img src="https://placehold.it/60x60"></button>
+                        <button data-slide="1"><img src="https://placehold.it/60x60"></button>
+                        <button data-slide="2"><img src="https://placehold.it/60x60"></button>
+                        <button data-slide="3"><img src="https://placehold.it/60x60"></button>
+                    </nav>
+                </div>
+            </div>
+            <div class="product-details medium-6 cell center-text-for-small-only">
+                <h1 id="nome">Product Name</h1>
+                <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id magna ac quam semper.deta</p>
+                <div class="grid-x">
+                    <div class="small-12 large-6 cell">
+                        <h6 class="product-color-title">Colors</h6>
+                        <form class="product-option-selection">
+                            <input type="radio" name="radios" value="red" id="radio1" checked>
+                            <label for="radio1" class=" dark-hollow expand"><img src="https://placehold.it/30x30"/></label>
+                            <input type="radio" name="radios" value="blue" id="radio2">
+                            <label for="radio2" class=" dark-hollow expand"><img src="https://placehold.it/30x30"/></label>
+                            <input type="radio" name="radios" value="yellow" id="radio3">
+                            <label for="radio3" class=" dark-hollow expand"><img src="https://placehold.it/30x30"/></label>
+                            <input type="radio" name="radios" value="orange" id="radio4">
+                            <label for="radio4" class=" dark-hollow expand"><img src="https://placehold.it/30x30"/></label>
+                            <input type="radio" name="radios" value="green" id="radio5">
+                            <label for="radio5" class=" dark-hollow expand"><img src="https://placehold.it/30x30"/></label>
+                        </form>
+                    </div>
+                    <div class="small-12 large-6 cell">
+                        <h6 class="product-color-title">Size</h6>
+                        <form class="product-option-selection">
+                            <select>
+                                <option value="husker">Small</option>
+                                <option value="starbuck">Medium</option>
+                                <option value="hotdog">Large</option>
+                                <option value="apollo">X-Large</option>
+                                <option value="apollo">XX-Large</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+                <div class="product-details-add-to-cart">
+                    <p><span class="in-stock">In Stock</span> <span class="dim-text">(Only 3 left in Stock)</span></p>
+                    <hr>
+                    <div class="grid-x">
+                        <div class="large-6 medium-8 small-6 xsmall-7 cell">
+                            <span class="dim-text">Quantidade</span>
+                            <div class="input-group plus-minus-input">
+                                <div class="input-group-button">
+                                    <button type="button" class="hollow button primary circle" onclick="if ($('#qty0').val() > 1) Decrement(0, true);"><i class="fi-minus" aria-hidden="true"></i></button>
+                                </div>
+                                <input class="input-group-field" type="number" value="1" id="qty0" min="0">
+                                <div class="input-group-button">
+                                    <button type="button" class="hollow button primary circle" onclick="Increment(0, true);"><i class="fi-plus" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="large-6 medium-4 small-6 xsmall-5 cell align-right" style="display: inline-grid;">
+                            <span class="dim-text">Preço</span>
+                            <p class="price" id="total0">$19,99</p>
+                        </div>
+                    </div>
+                    <button class="button expanded" onclick="Register(document.getElementById('img').getAttribute('src'), document.getElementById('nome').innerHTML, ($('#total0').html().split('$').pop().replace(',', '.') / $('#qty0').val()), $('#qty0').val());">Add to Cart</button>
+                </div>
+                <p class="shipping">Available for Free Ground Shipping &amp; Return</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- marketing site footer -->
+    <footer class="marketing-site-footer">
+        <div class="grid-x">
+            <div class="large-auto cell padded">
+                <h4 class="marketing-site-footer-name">Yeti Snowcone</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolorem accusantium architecto id quidem, itaque nesciunt quam ducimus atque.</p>
+                <ul class="menu marketing-site-footer-menu-social simple">
+                    <li><a href="#"><i class="fi-social-youtube" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fi-social-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fi-social-twitter" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <div class="large-auto cell padded">
+                <h4 class="marketing-site-footer-title">Contact Info</h4>
+                <div class="marketing-site-footer-block">
+                    <i class="fi fi-marker" aria-hidden="true"></i>
+                    <p>100 W Rincon<br>San Francisco, CA 94015</p>
+                </div>
+                <div class="marketing-site-footer-block">
+                    <i class="fi fi-telephone" aria-hidden="true"></i>
+                    <p>1 (800) 555-5555</p>
+                </div>
+                <div class="marketing-site-footer-block">
+                    <i class="fi fi-mail" aria-hidden="true"></i>
+                    <p>yetirules@fakeemail.com</p>
+                </div>
+            </div>
+            <div class="large-auto cell padded">
+                <h4 class="marketing-site-footer-title">Instagram</h4>
+                <div class="grid-x">
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="marketing-site-footer-bottom">
+            <div class="grid-x" style="padding: 0 1rem 0 1rem">
+                <div class="large-auto cell align-self-middle">
+                    <p>&copy; 2017 No rights reserved</p>
+                </div>
+                <div class="large-auto cell">
+                    <ul class="menu marketing-site-footer-bottom-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Works</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /marketing site footer -->
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/scrollbar/mwheelIntent.js"></script>
+    <script src="js/scrollbar/jquery.mousewheel.js"></script>
+    <script src="js/scrollbar/jquery.jscrollpane.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

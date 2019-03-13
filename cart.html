@@ -1,0 +1,274 @@
+<!doctype html>
+<html class="no-js" lang="pt-BR" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/jquery.jscrollpane.css" />
+    <link rel="stylesheet" href="icons/foundation-icons.css" />
+</head>
+
+<body onload="Populate();">
+    <!-- NOTE: This is the off-canvas menu that appears when you click on the hamburger menu on smaller screens. Everything in the `.off-canvas` div belongs in `src/layouts/default.html`. Copy this section into the `default.html` file and remove it from this file.  -->
+    <div class="off-canvas ecommerce-header-off-canvas position-left" id="ecommerce-header" data-off-canvas>
+
+        <!-- Close button -->
+        <button class="close-button" aria-label="Close menu" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <!-- Menu -->
+        <ul class="menu vertical">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#">Cart</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">My Account</a></li>
+        </ul>
+
+    </div>
+
+    <!-- NOTE: This is the header menu that appears at the top of your site. -->
+    <div class="off-canvas-content" data-off-canvas-content>
+        <div class="ecommerce-header-top show-for-large">
+            <div class="grid-x">
+                <div class="ecommerce-header-top-message medium-2 cell">
+                    <a href="index.html"><img class="logo" src="https://placehold.it/160x40"></a>
+                </div>
+                <div class="medium-4 cell" style="display:flex;justify-content:center;align-items:center;">
+                    <div class="menu" style="height:40px;">
+                        <input type="search" class="input" placeholder="Buscar">
+                        <button type="button" class="search-button"></button>
+                    </div>
+                </div>
+                <div class="ecommerce-header-top-links medium-6 cell">
+                    <div class="grid-x">
+                        <div class="auto cell items"><a href="#">Help</a></div>
+                        <div class="shrink cell items"><a href="#">Cart</a></div>
+                        <div class="auto cell items"><a href="#">Contact</a></div>
+                        <div class="shrink cell items"><a href="#">My Account</a></div>
+                        <div class="auto cell items"><button type="button" class="shopping-cart-button" data-toggle="shopping-cart-dropdown" id="shopping-cart"></button></div>
+
+                        <div class="shopping-cart-dropdown-pane">
+                            <div class="dropdown-pane bottom" id="shopping-cart-dropdown" data-dropdown data-hover="true" data-hover-pane="true">
+                                <div id="shopping-cart-content"></div>
+                                <div>
+                                    <a href="#" class="button shopping-cart-checkout expanded">Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ecommerce-header-mobile hide-for-large">
+            <div class="ecommerce-header-mobile-left">
+                <button class="menu-icon" type="button" data-toggle="ecommerce-header"></button>
+                <form class="ecommerce-header-search-exandable">
+                    <input type="search" placeholder="Search">
+                </form>
+            </div>
+            <div class="ecommerce-header-mobile-center">
+                <a href="index.html"><img class="logo" src="https://placehold.it/130x40"></a>
+            </div>
+            <div class="ecommerce-header-mobile-right">
+                <a class="shopping-cart-button"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Hero -->
+    <div class="hero-slider-slide">
+        <div class="grid-x">
+            <div class="large-8 medium-12 cell">
+                <div class="grid-x hide-for-small-only">
+                    <div class="medium-2 cell"></div>
+                    <div class="medium-4 cell center">
+                        <span>Item</span>
+                    </div>
+                    <div class="medium-2 cell center">
+                        <span>Preço</span>
+                    </div>
+                    <div class="medium-2 cell center">
+                        <span>Quantidade</span>
+                    </div>
+                    <div class="medium-2 cell center">
+                        <span>Subtotal</span>
+                    </div>
+                </div>
+                <div class="show-for-small-only">
+                    <span>Itens</span>
+                </div>
+                <div id="product-list" style="margin-bottom: 2em;"></div>
+            </div>
+            <div class="large-4 medium-12 cell">
+                <div class="grid-x">
+                    <div class="large-12 medium-6 cell cart-options">
+                        <div style="margin-left: 2rem; margin-right: 2rem; background-color: #eaeaea; padding: 1em;">
+                            <span class="bold">Cupom de desconto</span>
+                            <div class="grid-x">
+                                <div class="large-8 medium-8 cell">
+                                    <input type="text" style="margin-bottom: 0;">
+                                </div>
+                                <div class="large-4 medium-4 cell">
+                                    <button type="button" class="hollow button secondary responsive">Aplicar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-left: 2rem; margin-right: 2rem; margin-top: 2rem; background-color: #eaeaea; padding: 1em;">
+                            <span class="bold">Consulte o frete e prazos de entrega</span>
+                            <div class="grid-x">
+                                <div class="large-8 medium-8 cell">
+                                    <input type="text" style="margin-bottom: 0;">
+                                </div>
+                                <div class="large-4 medium-4 cell">
+                                    <button type="button" class="hollow button secondary responsive">Consultar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-left: 2rem; margin-right: 2rem; margin-top: 2rem; margin-bottom: 2rem; background-color: #eaeaea; padding: 1em;">
+                            <input type="checkbox">
+                            <span class="bold">Embalagem de presente</span>
+                        </div>
+                    </div>
+                    <div class="large-12 medium-6 cell">
+                        <div style="margin-left: 2rem; margin-right: 2rem; background-color: #eaeaea; padding: 1em;">
+                            <span class="bold"><strong>Subtotal</strong></span>
+                            <hr>
+                            <div style="display: flex;">
+                                <div style="width: 80%;">
+                                    <span style="display: flex; text-align: left;" id="product-quantity"></span>
+                                </div>
+                                <div style="width: 20%;">
+                                    <span id="product-price"></span>
+                                </div>
+                            </div>
+                            <hr>
+                            <div style="display: flex;">
+                                <div style="width: 80%;">
+                                    <span class="bold" style="display: flex; text-align: left;">TOTAL</span>
+                                </div>
+                                <div style="width: 20%;">
+                                    <span class="bold" id="total-price"></span>
+                                </div>
+                            </div>
+                            <div style="text-align: right; margin-top: 2em;">
+                                    <button type="button" class="button success" id="submitteste"><strong>Continuar</strong></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- marketing site footer -->
+    <footer class="marketing-site-footer">
+        <div class="grid-x">
+            <div class="large-auto cell padded">
+                <h4 class="marketing-site-footer-name">Yeti Snowcone</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolorem accusantium architecto id quidem, itaque nesciunt quam ducimus atque.</p>
+                <ul class="menu marketing-site-footer-menu-social simple">
+                    <li><a href="#"><i class="fi-social-youtube" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fi-social-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fi-social-twitter" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <div class="large-auto cell padded">
+                <h4 class="marketing-site-footer-title">Contact Info</h4>
+                <div class="marketing-site-footer-block">
+                    <i class="fi fi-marker" aria-hidden="true"></i>
+                    <p>100 W Rincon<br>San Francisco, CA 94015</p>
+                </div>
+                <div class="marketing-site-footer-block">
+                    <i class="fi fi-telephone" aria-hidden="true"></i>
+                    <p>1 (800) 555-5555</p>
+                </div>
+                <div class="marketing-site-footer-block">
+                    <i class="fi fi-mail" aria-hidden="true"></i>
+                    <p>yetirules@fakeemail.com</p>
+                </div>
+            </div>
+            <div class="large-auto cell padded">
+                <h4 class="marketing-site-footer-title">Instagram</h4>
+                <div class="grid-x">
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                    <div class="small-4 large-4 cell padded">
+                        <img class="img-resp" src="https://placehold.it/300" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="marketing-site-footer-bottom">
+            <div class="grid-x" style="padding: 0 1rem 0 1rem">
+                <div class="large-auto cell align-self-middle">
+                    <p>&copy; 2017 No rights reserved</p>
+                </div>
+                <div class="large-auto cell">
+                    <ul class="menu marketing-site-footer-bottom-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Works</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /marketing site footer -->
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/scrollbar/mwheelIntent.js"></script>
+    <script src="js/scrollbar/jquery.mousewheel.js"></script>
+    <script src="js/scrollbar/jquery.jscrollpane.js"></script>
+    <script src="js/app.js"></script>
+    
+    
+    <script>
+        $("#submitteste").click(function(){
+           $.ajax({url: "http://localhost/teste.php", contenType: "application/xml", data: loadDoc(), scriptCharset: "ISO-8859-1", success: function (result){
+                PagSeguroDirectPayment.setSessionId(result);
+               alert(result);
+           }});
+        });
+            
+            
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        xmlDoc = this.responseXML;
+      return xmlDoc;
+    }
+  };
+  xhttp.open("GET", "checkout.xml", true);
+  xhttp.send();
+}
+    </script>
+    <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+</body>
+
+</html>
